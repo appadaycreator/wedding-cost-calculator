@@ -1,15 +1,15 @@
 const CACHE_NAME = 'wedding-calculator-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/manifest.json',
-    '/favicon.ico',
-    '/icon-192.png',
-    '/icon-512.png',
-    '/privacy.html',
-    '/disclaimer.html',
-    '/contact.html',
-    '/images/ogp-image.jpg'
+    './',
+    './index.html',
+    './manifest.json',
+    './favicon.ico',
+    './icon-192.png',
+    './icon-512.png',
+    './privacy.html',
+    './disclaimer.html',
+    './contact.html',
+    './images/ogp-image.jpg'
 ];
 
 self.addEventListener('install', event => {
