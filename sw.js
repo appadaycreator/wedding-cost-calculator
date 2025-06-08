@@ -11,6 +11,12 @@ const urlsToCache = [
     './contact.html'
 ];
 
+// キャッシュ可能なリクエストかどうかをチェック
+function isCacheableRequest(request) {
+    const url = new URL(request.url);
+    return url.protocol === 'http:' || url.protocol === 'https:';
+}
+
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
@@ -25,6 +31,11 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
+    // キャッシュ可能なリクエストのみを処理
+    if (!isCacheableRequest(event.request)) {
+        return;
+    }
+
     event.respondWith(
         caches.match(event.request)
             .then(response => {
@@ -38,7 +49,10 @@ self.addEventListener('fetch', event => {
                             const responseToCache = response.clone();
                             caches.open(CACHE_NAME)
                                 .then(cache => {
-                                    cache.put(event.request, responseToCache);
+                                    cache.put(event.request, responseToCache)
+                                        .catch(error => {
+                                            console.error('Cache put failed:', error);
+                                        });
                                 });
                         }
                         return response;
