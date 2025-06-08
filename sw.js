@@ -8,7 +8,8 @@ const urlsToCache = [
     './icon-512.png',
     './privacy.html',
     './disclaimer.html',
-    './contact.html'
+    './contact.html',
+    './images/ogp-image.jpg'
 ];
 
 // キャッシュ可能なリクエストかどうかをチェック
