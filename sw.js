@@ -8,14 +8,19 @@ const urlsToCache = [
     './icon-512.png',
     './privacy.html',
     './disclaimer.html',
-    './contact.html',
-    './images/ogp-image.jpg'
+    './contact.html'
 ];
 
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(urlsToCache))
+            .then(cache => {
+                console.log('Opened cache');
+                return cache.addAll(urlsToCache);
+            })
+            .catch(error => {
+                console.error('Cache failed:', error);
+            })
     );
 });
 
@@ -26,7 +31,21 @@ self.addEventListener('fetch', event => {
                 if (response) {
                     return response;
                 }
-                return fetch(event.request);
+                return fetch(event.request)
+                    .then(response => {
+                        // キャッシュに保存
+                        if (response && response.status === 200) {
+                            const responseToCache = response.clone();
+                            caches.open(CACHE_NAME)
+                                .then(cache => {
+                                    cache.put(event.request, responseToCache);
+                                });
+                        }
+                        return response;
+                    });
+            })
+            .catch(error => {
+                console.error('Fetch failed:', error);
             })
     );
 }); 
