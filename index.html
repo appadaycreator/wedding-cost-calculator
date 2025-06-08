@@ -3,50 +3,815 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ウェディング費用計算機</title>
-    <meta name="description" content="結婚式の費用を簡単に計算できるツールです。">
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    <meta name="theme-color" content="#ffffff">
-    <meta property="og:title" content="ウェディング費用計算機">
-    <meta property="og:description" content="結婚式の費用を簡単に計算できるツールです。">
-    <meta property="og:image" content="images/ogp-image.jpg">
+    <title>結婚式費用計算機 - リアルな見積もりで理想の結婚式を実現</title>
+    <meta name="description" content="結婚式の費用を詳細に計算し、予算に合わせた理想の結婚式プランを提案。ゲスト数、会場タイプ、地域に応じたリアルな見積もりを無料で計算できます。">
+    <meta name="keywords" content="結婚式,費用,計算機,見積もり,ブライダル,ウェディング,予算,節約">
+    
+    <!-- OGP -->
+    <meta property="og:title" content="結婚式費用計算機 - リアルな見積もりで理想の結婚式を実現">
+    <meta property="og:description" content="結婚式の費用を詳細に計算し、予算に合わせた理想の結婚式プランを提案。ゲスト数、会場タイプ、地域に応じたリアルな見積もりを無料で計算できます。">
+    <meta property="og:image" content="https://cdn1.genspark.ai/user-upload-image/22_generated/d85caa76-42db-4efb-ae93-67e70f72efa6">
+    <meta property="og:url" content="https://appadaycreator.github.io/wedding-cost-calculator/">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="結婚式費用計算機">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="結婚式費用計算機 - リアルな見積もりで理想の結婚式を実現">
+    <meta name="twitter:description" content="結婚式の費用を詳細に計算し、予算に合わせた理想の結婚式プランを提案。ゲスト数、会場タイプ、地域に応じたリアルな見積もりを無料で計算できます。">
+    <meta name="twitter:image" content="https://cdn1.genspark.ai/user-upload-image/22_generated/d85caa76-42db-4efb-ae93-67e70f72efa6">
+    
+    <!-- PWA -->
+    <meta name="theme-color" content="#f8bbd9">
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoi57WQ5ama5byP6LK554So6KiI566X5qmfIiwic2hvcnRfbmFtZSI6IuWkp+WIh+iojOeul+qmnyIsInN0YXJ0X3VybCI6Ii4vIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2Y4YmJkOSIsInRoZW1lX2NvbG9yIjoiI2Y4YmJkOSIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTV5TXpsdmNtY3ZNakF3TUM5emRtY2lJSGRwWkhSb1BTSXhNakFpSUdobGFXZG9kRDBpTVRJd0lpQjJhV1YzUW05NFBTSXdJREFnTVRJd0lERXlNQ0krUEhCaGRHZ2daRDBpVFRjd0lEUXdZell3SURJZ05qQXROalFnTmpBdE5qUW9NaUF0TmpBZ05qQWdOakFnTmpRdE5qQWdOalJJTVRFMll6WTBJREF3ZFRJd0xURTJMVEkwY3pJd0xURXhOaUl6SWlCbWFXeHNQU0lqWmpodVltUmtPU0krUEhCaGRHZ2daRDBpVFRZNExUTXhZaTB4T0M0Mk1Ta3hOeTQzZFRZd0lETXdJREUyZFRVMkxURTJjekl3TFRFd0xUUTJMV0p6TFRJM0xUYzRMVFkwTGpGMExUSTNMUzB5T0M0MVkyOXVkR2x1ZFdGc0xqTTFMUzQyTlM0Mk5TMGdNeTQwTWkweExqSXpJRGsyTFRFMUxqRTFZekUyTlMwME1UZ2dNekl6TFRReE9DSXlOelJqTnpJZ01DQXhORGtnTmpZZ01UUTVJREUxTkhoY01UUjJkVEkwSURjM2MyNGdNakFnYmpRdU1qRWdOaTR6TmpJdE5TNDNNRG95TGprMUxUSXhMUzR5TlM0M0xqUTBMUzQzTWk0M0xTNDJNRng0ZUNJZ1ptbHNiRDBpSTNSbFpIUWlMejQ4TDNOMlp6ND0iLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9XSwiaWQiOiIvIiwib3JpZW50YXRpb24iOiJwb3J0cmFpdCJ9">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTIwIDEyMCI+PHBhdGggZD0iTTcwIDQwYzYwIDIgNjAtNjQgNjAtNjQoMiAtNjAgNjAgNjQtNjAgNjRIMTE2YzY0IDAwdTIwLTE2LTI0czIwLTE2IiAzIiBmaWxsPSIjZjhiYmQ5Ij48cGF0aCBkPSJNNjgtMzFiLTE4LjYxKTE3LjdtNjAgMzAgMTZ1NTYtMTZzMjAtMTAtNDYtYnMyNy03OC02NC4xNC0yNy0yOC41Y29udGludWFsLjM1LS42NS42NiBzMyAzLjQyLTEuMjMgOTYtMTUuMTVjMTY1LTQxOCAzMjMtNDE4IjI3NGM3MiAwIDE0OSA2NiAxNDkgMTU0eDE0djI0IDc3czkgMjAgbjQuMjEgNi4zNjItNS43MDo5LjUyMUxTLjI1LjcuNDQuNzIuNy42MFx4eCIgZmlsbD0iI3RlZHQiLz48L3N2Zz4=">
+    
+    <!-- CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TXQGZRF9');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8bbd9 0%, #f093fb 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .animate-bounce-in {
+            animation: bounceIn 0.6s ease-out;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #f8bbd9;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>ウェディング費用計算機</h1>
-        <nav>
-            <ul>
-                <li><a href="privacy.html">プライバシーポリシー</a></li>
-                <li><a href="disclaimer.html">免責事項</a></li>
-                <li><a href="contact.html">お問い合わせ</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="min-h-screen gradient-bg">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-    <main>
-        <section id="calculator">
-            <!-- 計算機のフォームをここに実装 -->
-        </section>
-    </main>
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-white mb-2">
+                <i class="fas fa-heart text-pink-300 mr-2"></i>
+                結婚式費用計算機
+            </h1>
+            <p class="text-pink-100 text-lg">理想の結婚式の費用を正確に計算しましょう</p>
+            
+            <!-- アフィリエイト広告エリア -->
+            <div class="mt-6 p-4 glass-effect rounded-lg">
+                <p class="text-white text-sm mb-3">おすすめ結婚式場検索サービス</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://zexy.net/" target="_blank" rel="noopener" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                        <i class="fas fa-church mr-1"></i>ゼクシィ
+                    </a>
+                    <a href="https://hana-yume.net/" target="_blank" rel="noopener" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                        <i class="fas fa-ring mr-1"></i>ハナユメ
+                    </a>
+                    <a href="https://www.mwed.jp/" target="_blank" rel="noopener" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                        <i class="fas fa-users mr-1"></i>みんなのウェディング
+                    </a>
+                </div>
+            </div>
+        </header>
 
-    <footer>
-        <p>&copy; 2024 ウェディング費用計算機</p>
-    </footer>
+        <main>
+            <!-- 計算フォーム -->
+            <div class="glass-effect rounded-2xl p-6 mb-8">
+                <h2 class="text-2xl font-bold text-white mb-6">
+                    <i class="fas fa-calculator mr-2"></i>結婚式情報を入力
+                </h2>
+                
+                <form id="wedding-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-white font-semibold mb-2">
+                                <i class="fas fa-users mr-1"></i>ゲスト数
+                            </label>
+                            <input type="number" id="guests" min="10" max="500" value="70" 
+                                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                            <span class="text-pink-100 text-sm">平均的なゲスト数は70名です</span>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-white font-semibold mb-2">
+                                <i class="fas fa-building mr-1"></i>会場タイプ
+                            </label>
+                            <select id="venue-type" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                                <option value="hotel">ホテル</option>
+                                <option value="restaurant">レストラン</option>
+                                <option value="chapel">チャペル・教会</option>
+                                <option value="hall">専門式場</option>
+                                <option value="house">ハウスウェディング</option>
+                                <option value="resort">リゾート</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-white font-semibold mb-2">
+                                <i class="fas fa-map-marker-alt mr-1"></i>地域
+                            </label>
+                            <select id="region" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                                <option value="tokyo">東京都</option>
+                                <option value="osaka">大阪府</option>
+                                <option value="aichi">愛知県</option>
+                                <option value="kanagawa">神奈川県</option>
+                                <option value="kyoto">京都府</option>
+                                <option value="other">その他の地域</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-white font-semibold mb-2">
+                                <i class="fas fa-yen-sign mr-1"></i>希望予算（万円）
+                            </label>
+                            <input type="number" id="budget" min="100" max="1000" value="350" 
+                                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-white font-semibold mb-3">
+                            <i class="fas fa-magic mr-1"></i>希望演出（複数選択可）
+                        </label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" class="演出" value="live" class="mr-2">
+                                <span class="ml-2">生演奏</span>
+                            </label>
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" class="演出" value="photo" class="mr-2">
+                                <span class="ml-2">写真撮影</span>
+                            </label>
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" class="演出" value="video" class="mr-2">
+                                <span class="ml-2">映像演出</span>
+                            </label>
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" class="演出" value="flower" class="mr-2">
+                                <span class="ml-2">装花豪華</span>
+                            </label>
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" class="演出" value="balloon" class="mr-2">
+                                <span class="ml-2">バルーン演出</span>
+                            </label>
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" class="演出" value="fireworks" class="mr-2">
+                                <span class="ml-2">花火演出</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg transform transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-calculator mr-2"></i>費用を計算する
+                    </button>
+                </form>
+            </div>
+
+            <!-- 結果表示エリア -->
+            <div id="result-area" class="hidden">
+                <!-- 総額表示 -->
+                <div class="glass-effect rounded-2xl p-6 mb-6 animate-bounce-in">
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        <i class="fas fa-yen-sign mr-2"></i>見積もり結果
+                    </h3>
+                    <div class="text-center">
+                        <div class="text-5xl font-bold text-yellow-300 mb-2" id="total-cost">0万円</div>
+                        <div class="text-pink-100" id="cost-status">予算内です！</div>
+                        <div class="mt-4">
+                            <span class="text-white">1人あたり：</span>
+                            <span class="text-yellow-300 font-bold text-xl" id="per-person-cost">0万円</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 内訳グラフ -->
+                <div class="glass-effect rounded-2xl p-6 mb-6">
+                    <h4 class="text-xl font-bold text-white mb-4">
+                        <i class="fas fa-chart-pie mr-2"></i>費用内訳
+                    </h4>
+                    <div class="bg-white rounded-lg p-4">
+                        <canvas id="cost-chart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- 詳細内訳 -->
+                <div class="glass-effect rounded-2xl p-6 mb-6">
+                    <h4 class="text-xl font-bold text-white mb-4">
+                        <i class="fas fa-list mr-2"></i>詳細内訳
+                    </h4>
+                    <div id="cost-breakdown" class="space-y-3"></div>
+                </div>
+
+                <!-- 節約提案 -->
+                <div class="glass-effect rounded-2xl p-6 mb-6">
+                    <h4 class="text-xl font-bold text-white mb-4">
+                        <i class="fas fa-lightbulb mr-2"></i>節約提案
+                    </h4>
+                    <div id="saving-tips" class="space-y-3"></div>
+                </div>
+
+                <!-- アクションボタン -->
+                <div class="flex flex-wrap gap-4 justify-center mb-6">
+                    <button id="save-result" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors">
+                        <i class="fas fa-save mr-2"></i>結果を保存
+                    </button>
+                    <button id="share-twitter" class="bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-lg transition-colors">
+                        <i class="fab fa-twitter mr-2"></i>Twitterでシェア
+                    </button>
+                    <button id="compare-friends" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition-colors">
+                        <i class="fas fa-users mr-2"></i>友達と比較
+                    </button>
+                    <button id="new-calculation" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors">
+                        <i class="fas fa-plus mr-2"></i>新しく計算
+                    </button>
+                </div>
+            </div>
+
+            <!-- 計算履歴 -->
+            <div class="glass-effect rounded-2xl p-6 mb-6">
+                <h3 class="text-xl font-bold text-white mb-4">
+                    <i class="fas fa-history mr-2"></i>計算履歴
+                </h3>
+                <div id="history-list" class="space-y-3">
+                    <p class="text-pink-100">まだ計算履歴がありません</p>
+                </div>
+                <button id="clear-history" class="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                    <i class="fas fa-trash mr-1"></i>履歴をクリア
+                </button>
+            </div>
+
+            <!-- アフィリエイト広告エリア2 -->
+            <div class="glass-effect rounded-2xl p-6 mb-6">
+                <h3 class="text-xl font-bold text-white mb-4">
+                    <i class="fas fa-gift mr-2"></i>結婚式準備におすすめ
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <h4 class="font-bold text-white mb-2">ブライダルフェア予約でお得に</h4>
+                        <p class="text-pink-100 text-sm mb-3">式場見学で最大6万円の商品券がもらえるキャンペーン実施中</p>
+                        <a href="https://zexy.net/" target="_blank" rel="noopener" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded text-sm transition-colors">
+                            詳細を見る
+                        </a>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <h4 class="font-bold text-white mb-2">ドレス試着予約</h4>
+                        <p class="text-pink-100 text-sm mb-3">人気ブランドドレスを割引価格で試着・レンタル</p>
+                        <a href="https://hana-yume.net/" target="_blank" rel="noopener" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded text-sm transition-colors">
+                            予約する
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- フッターリンク -->
+        <footer class="text-center text-pink-100 space-y-4">
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#privacy" onclick="showModal('privacy')" class="hover:text-white transition-colors">プライバシーポリシー</a>
+                <a href="#terms" onclick="showModal('terms')" class="hover:text-white transition-colors">免責事項</a>
+                <a href="#contact" onclick="showModal('contact')" class="hover:text-white transition-colors">お問い合わせ</a>
+            </div>
+            <p>&copy; 2024 結婚式費用計算機. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- モーダル -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-96 overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="modal-content" class="text-gray-700 leading-relaxed"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 友達と比較モーダル -->
+    <div id="compare-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800">友達と比較</h3>
+                    <button onclick="closeCompareModal()" class="text-gray-500 hover:text-gray-800 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="text-center">
+                    <div class="mb-4">
+                        <p class="text-gray-700 mb-2">あなたの結果をシェアして友達と比較しよう！</p>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <div class="text-3xl font-bold text-pink-600 mb-2" id="share-total">0万円</div>
+                            <div class="text-gray-600" id="share-details">ゲスト0名・会場タイプ</div>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <button onclick="shareToLine()" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg transition-colors">
+                            <i class="fab fa-line mr-2"></i>LINEでシェア
+                        </button>
+                        <button onclick="shareToTwitter()" class="w-full bg-blue-400 hover:bg-blue-500 text-white py-3 rounded-lg transition-colors">
+                            <i class="fab fa-twitter mr-2"></i>Twitterでシェア
+                        </button>
+                        <button onclick="copyToClipboard()" class="w-full bg-gray-500 hover:bg-gray-600 text-white py-3 rounded-lg transition-colors">
+                            <i class="fas fa-copy mr-2"></i>リンクをコピー
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Service Workerの登録
+        // 地域別相場データ
+        const regionalData = {
+            tokyo: { multiplier: 1.2, name: "東京都" },
+            osaka: { multiplier: 1.0, name: "大阪府" },
+            aichi: { multiplier: 0.95, name: "愛知県" },
+            kanagawa: { multiplier: 1.15, name: "神奈川県" },
+            kyoto: { multiplier: 1.1, name: "京都府" },
+            other: { multiplier: 0.9, name: "その他の地域" }
+        };
+
+        // 会場タイプ別基本料金
+        const venueData = {
+            hotel: { base: 15000, name: "ホテル", multiplier: 1.2 },
+            restaurant: { base: 12000, name: "レストラン", multiplier: 0.9 },
+            chapel: { base: 18000, name: "チャペル・教会", multiplier: 1.3 },
+            hall: { base: 16000, name: "専門式場", multiplier: 1.1 },
+            house: { base: 20000, name: "ハウスウェディング", multiplier: 1.4 },
+            resort: { base: 25000, name: "リゾート", multiplier: 1.6 }
+        };
+
+        // 演出オプション料金
+        const optionData = {
+            live: { cost: 150000, name: "生演奏" },
+            photo: { cost: 200000, name: "写真撮影" },
+            video: { cost: 300000, name: "映像演出" },
+            flower: { cost: 250000, name: "装花豪華" },
+            balloon: { cost: 80000, name: "バルーン演出" },
+            fireworks: { cost: 400000, name: "花火演出" }
+        };
+
+        let lastCalculation = null;
+        let chart = null;
+
+        // PWA Service Worker登録
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-                .then(registration => {
-                    console.log('ServiceWorker registration successful');
-                })
-                .catch(err => {
-                    console.log('ServiceWorker registration failed: ', err);
-                });
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('data:text/javascript;base64,Y29uc3QgQ0FDSEVfTkFNRSA9ICd3ZWRkaW5nLWNhbGN1bGF0b3ItdjEnOw0KY29uc3QgdXJsc1RvQ2FjaGUgPSBbDQogICcuLycsDQogICcuL2luZGV4Lmh0bWwnDQpdOw0KDQpzZWxmLmFkZEV2ZW50TGlzdGVuZXIoJ2luc3RhbGwnLCBldmVudCA9PiB7DQogIGV2ZW50LndhaXRVbnRpbCgNCiAgICBjYWNoZXMub3BlbihDQUNIRV9OQU1FKQ0KICAgICAgLnRoZW4oY2FjaGUgPT4gY2FjaGUuYWRkQWxsKHVybHNUb0NhY2hlKSkNCiAgKTsNCn0pOw0KDQpzZWxmLmFkZEV2ZW50TGlzdGVuZXIoJ2ZldGNoJywgZXZlbnQgPT4gew0KICBldmVudC5yZXNwb25kV2l0aCgNCiAgICBjYWNoZXMubWF0Y2goZXZlbnQucmVxdWVzdCkNCiAgICAgIC50aGVuKHJlc3BvbnNlID0+IHJlc3BvbnNlIHx8IGZldGNoKGV2ZW50LnJlcXVlc3QpKQ0KICApOw0KfSk7')
+                    .then(() => console.log('SW registered'))
+                    .catch(() => console.log('SW registration failed'));
+            });
         }
+
+        // フォーム送信処理
+        document.getElementById('wedding-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateWeddingCost();
+        });
+
+        function calculateWeddingCost() {
+            const guests = parseInt(document.getElementById('guests').value);
+            const venueType = document.getElementById('venue-type').value;
+            const region = document.getElementById('region').value;
+            const budget = parseInt(document.getElementById('budget').value);
+            const selectedOptions = Array.from(document.querySelectorAll('input[class="演出"]:checked')).map(cb => cb.value);
+
+            // 基本料金計算
+            const venue = venueData[venueType];
+            const regional = regionalData[region];
+            
+            const baseCost = venue.base * guests * venue.multiplier * regional.multiplier;
+            
+            // 演出オプション料金
+            const optionCost = selectedOptions.reduce((total, option) => {
+                return total + optionData[option].cost;
+            }, 0);
+
+            // その他固定費用
+            const fixedCosts = {
+                dress: 300000,
+                photography: 200000,
+                flowers: 150000,
+                makeup: 100000,
+                invitation: guests * 500,
+                gift: guests * 1500
+            };
+
+            const totalFixedCost = Object.values(fixedCosts).reduce((a, b) => a + b, 0);
+            const totalCost = Math.round((baseCost + optionCost + totalFixedCost) / 10000);
+            const perPersonCost = Math.round(totalCost / guests * 10) / 10;
+
+            // 結果データ
+            const result = {
+                totalCost,
+                perPersonCost,
+                breakdown: {
+                    venue: Math.round(baseCost / 10000),
+                    dress: Math.round(fixedCosts.dress / 10000),
+                    photography: Math.round(fixedCosts.photography / 10000),
+                    flowers: Math.round(fixedCosts.flowers / 10000),
+                    makeup: Math.round(fixedCosts.makeup / 10000),
+                    invitation: Math.round(fixedCosts.invitation / 10000),
+                    gift: Math.round(fixedCosts.gift / 10000),
+                    options: Math.round(optionCost / 10000)
+                },
+                config: {
+                    guests,
+                    venueType: venue.name,
+                    region: regional.name,
+                    budget,
+                    options: selectedOptions.map(opt => optionData[opt].name)
+                }
+            };
+
+            lastCalculation = result;
+            displayResult(result);
+            saveToHistory(result);
+        }
+
+        function displayResult(result) {
+            document.getElementById('result-area').classList.remove('hidden');
+            document.getElementById('total-cost').textContent = `${result.totalCost}万円`;
+            document.getElementById('per-person-cost').textContent = `${result.perPersonCost}万円`;
+            
+            // 予算との比較
+            const costStatus = document.getElementById('cost-status');
+            if (result.totalCost <= result.config.budget) {
+                costStatus.textContent = '予算内です！';
+                costStatus.className = 'text-green-300';
+            } else {
+                const over = result.totalCost - result.config.budget;
+                costStatus.textContent = `予算を${over}万円オーバーしています`;
+                costStatus.className = 'text-red-300';
+            }
+
+            // グラフ表示
+            displayChart(result.breakdown);
+            
+            // 詳細内訳表示
+            displayBreakdown(result.breakdown);
+            
+            // 節約提案表示
+            displaySavingTips(result);
+
+            // 結果エリアにスクロール
+            document.getElementById('result-area').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function displayChart(breakdown) {
+            const ctx = document.getElementById('cost-chart').getContext('2d');
+            
+            if (chart) {
+                chart.destroy();
+            }
+
+            const labels = ['会場費', 'ドレス', '写真', '装花', 'ヘアメイク', '招待状', 'ギフト', 'オプション'];
+            const data = [
+                breakdown.venue,
+                breakdown.dress,
+                breakdown.photography,
+                breakdown.flowers,
+                breakdown.makeup,
+                breakdown.invitation,
+                breakdown.gift,
+                breakdown.options
+            ];
+
+            chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: [
+                            '#f8bbd9', '#e879f9', '#a855f7', '#6366f1',
+                            '#3b82f6', '#06b6d4', '#10b981', '#f59e0b'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        function displayBreakdown(breakdown) {
+            const breakdownDiv = document.getElementById('cost-breakdown');
+            const items = [
+                { name: '会場費', cost: breakdown.venue },
+                { name: 'ドレス', cost: breakdown.dress },
+                { name: '写真撮影', cost: breakdown.photography },
+                { name: '装花', cost: breakdown.flowers },
+                { name: 'ヘアメイク', cost: breakdown.makeup },
+                { name: '招待状', cost: breakdown.invitation },
+                { name: 'ギフト', cost: breakdown.gift },
+                { name: 'オプション', cost: breakdown.options }
+            ];
+
+            breakdownDiv.innerHTML = items.map(item => `
+                <div class="flex justify-between items-center bg-white bg-opacity-20 rounded-lg p-3">
+                    <span class="text-white font-medium">${item.name}</span>
+                    <span class="text-yellow-300 font-bold">${item.cost}万円</span>
+                </div>
+            `).join('');
+        }
+
+        function displaySavingTips(result) {
+            const tips = [];
+            
+            if (result.breakdown.venue > result.totalCost * 0.4) {
+                tips.push('会場費が高めです。レストランウェディングで20-30万円節約可能');
+            }
+            
+            if (result.breakdown.dress > 50) {
+                tips.push('ドレスはレンタルで15-20万円節約できます');
+            }
+            
+            if (result.breakdown.options > 50) {
+                tips.push('演出を絞ることで大幅な節約が可能です');
+            }
+            
+            if (result.config.guests > 80) {
+                tips.push('ゲスト数を10名減らすと約25万円節約できます');
+            }
+
+            tips.push('平日開催で20-30%割引になる会場が多いです');
+            tips.push('6月は梅雨のため料金が安く設定されています');
+
+            const tipsDiv = document.getElementById('saving-tips');
+            tipsDiv.innerHTML = tips.map(tip => `
+                <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                    <i class="fas fa-lightbulb text-yellow-300 mr-2"></i>
+                    <span class="text-white">${tip}</span>
+                </div>
+            `).join('');
+        }
+
+        // SNSシェア機能
+        document.getElementById('share-twitter').addEventListener('click', () => {
+            if (lastCalculation) {
+                const text = `結婚式費用計算機で見積もりしました！\n総額：${lastCalculation.totalCost}万円\nゲスト：${lastCalculation.config.guests}名\n会場：${lastCalculation.config.venueType}\n\n#継続は力なり #結婚式 #ブライダル #費用計算`;
+                const url = 'https://appadaycreator.github.io/wedding-cost-calculator/';
+                window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`);
+            }
+        });
+
+        // 履歴保存
+        function saveToHistory(result) {
+            const history = JSON.parse(localStorage.getItem('weddingHistory') || '[]');
+            const entry = {
+                date: new Date().toLocaleString('ja-JP'),
+                ...result
+            };
+            history.unshift(entry);
+            history.splice(10); // 最新10件のみ保持
+            localStorage.setItem('weddingHistory', JSON.stringify(history));
+            displayHistory();
+        }
+
+        function displayHistory() {
+            const history = JSON.parse(localStorage.getItem('weddingHistory') || '[]');
+            const historyDiv = document.getElementById('history-list');
+            
+            if (history.length === 0) {
+                historyDiv.innerHTML = '<p class="text-pink-100">まだ計算履歴がありません</p>';
+                return;
+            }
+
+            historyDiv.innerHTML = history.map((entry, index) => `
+                <div class="bg-white bg-opacity-20 rounded-lg p-3 cursor-pointer hover:bg-opacity-30 transition-colors" onclick="loadHistory(${index})">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="text-white font-medium">${entry.totalCost}万円</div>
+                            <div class="text-pink-100 text-sm">${entry.config.guests}名・${entry.config.venueType}・${entry.config.region}</div>
+                        </div>
+                        <div class="text-pink-100 text-sm">${entry.date}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadHistory(index) {
+            const history = JSON.parse(localStorage.getItem('weddingHistory') || '[]');
+            const entry = history[index];
+            lastCalculation = entry;
+            displayResult(entry);
+        }
+
+        // その他のイベントリスナー
+        document.getElementById('save-result').addEventListener('click', () => {
+            if (lastCalculation) {
+                alert('計算結果を保存しました！');
+            }
+        });
+
+        document.getElementById('compare-friends').addEventListener('click', () => {
+            if (lastCalculation) {
+                document.getElementById('share-total').textContent = `${lastCalculation.totalCost}万円`;
+                document.getElementById('share-details').textContent = `ゲスト${lastCalculation.config.guests}名・${lastCalculation.config.venueType}`;
+                document.getElementById('compare-modal').classList.remove('hidden');
+            }
+        });
+
+        document.getElementById('new-calculation').addEventListener('click', () => {
+            document.getElementById('result-area').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.getElementById('clear-history').addEventListener('click', () => {
+            if (confirm('計算履歴をすべて削除しますか？')) {
+                localStorage.removeItem('weddingHistory');
+                displayHistory();
+            }
+        });
+
+        // モーダル関数
+        function showModal(type) {
+            const modal = document.getElementById('modal');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+
+            const contents = {
+                privacy: {
+                    title: 'プライバシーポリシー',
+                    content: `
+                        <h4 class="font-bold mb-2">個人情報の取り扱いについて</h4>
+                        <p class="mb-4">当サイトでは、お客様の個人情報を適切に保護することを重要な責務と考えています。</p>
+                        
+                        <h5 class="font-semibold mb-2">収集する情報</h5>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>計算結果の履歴（ローカルストレージに保存）</li>
+                            <li>アクセス解析のための匿名化された情報</li>
+                        </ul>
+                        
+                        <h5 class="font-semibold mb-2">情報の利用目的</h5>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>サービスの提供・改善</li>
+                            <li>統計データの作成</li>
+                        </ul>
+                        
+                        <h5 class="font-semibold mb-2">第三者への提供</h5>
+                        <p class="mb-4">お客様の個人情報を、お客様の同意なく第三者に提供することはありません。</p>
+                        
+                        <h5 class="font-semibold mb-2">お問い合わせ</h5>
+                        <p>プライバシーポリシーに関するお問い合わせは、お問い合わせフォームよりご連絡ください。</p>
+                    `
+                },
+                terms: {
+                    title: '免責事項',
+                    content: `
+                        <h4 class="font-bold mb-2">免責事項</h4>
+                        <p class="mb-4">結婚式費用計算機をご利用いただきありがとうございます。以下の事項についてご確認ください。</p>
+                        
+                        <h5 class="font-semibold mb-2">計算結果について</h5>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>本サービスの計算結果は目安であり、実際の費用とは異なる場合があります</li>
+                            <li>地域や時期、会場により料金は大きく変動します</li>
+                            <li>正確な見積もりは必ず式場に直接お問い合わせください</li>
+                        </ul>
+                        
+                        <h5 class="font-semibold mb-2">サービスの利用について</h5>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>本サービスは無料で提供しており、利用結果について一切の責任を負いません</li>
+                            <li>サービスの内容は予告なく変更される場合があります</li>
+                            <li>システムの不具合等により一時的に利用できない場合があります</li>
+                        </ul>
+                        
+                        <h5 class="font-semibold mb-2">アフィリエイトについて</h5>
+                        <p class="mb-4">本サイトは、Amazon.co.jpアソシエイト、楽天アフィリエイト、A8.net等のアフィリエイトプログラムに参加しています。</p>
+                        
+                        <p>本サービスの利用により生じた損害について、当サイトは一切の責任を負いません。</p>
+                    `
+                },
+                contact: {
+                    title: 'お問い合わせ',
+                    content: `
+                        <h4 class="font-bold mb-2">お問い合わせフォーム</h4>
+                        <p class="mb-4">結婚式費用計算機に関するお問い合わせは、以下のフォームよりご連絡ください。</p>
+                        
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block font-semibold mb-2">お名前 *</label>
+                                <input type="text" class="w-full p-2 border rounded-lg" required>
+                            </div>
+                            <div>
+                                <label class="block font-semibold mb-2">メールアドレス *</label>
+                                <input type="email" class="w-full p-2 border rounded-lg" required>
+                            </div>
+                            <div>
+                                <label class="block font-semibold mb-2">お問い合わせ内容 *</label>
+                                <textarea class="w-full p-2 border rounded-lg h-32" required></textarea>
+                            </div>
+                            <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-lg transition-colors">
+                                送信する
+                            </button>
+                        </form>
+                        
+                        <div class="mt-6 p-4 bg-gray-100 rounded-lg">
+                            <h5 class="font-semibold mb-2">よくあるお問い合わせ</h5>
+                            <ul class="list-disc pl-6 text-sm">
+                                <li>計算結果が実際と大きく異なる場合</li>
+                                <li>新しい機能の要望</li>
+                                <li>バグや不具合の報告</li>
+                                <li>その他サービスに関するご意見・ご要望</li>
+                            </ul>
+                        </div>
+                    `
+                }
+            };
+
+            title.textContent = contents[type].title;
+            content.innerHTML = contents[type].content;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        function closeCompareModal() {
+            document.getElementById('compare-modal').classList.add('hidden');
+        }
+
+        function shareToLine() {
+            if (lastCalculation) {
+                const text = `結婚式費用計算機で見積もりしました！\n総額：${lastCalculation.totalCost}万円\nゲスト：${lastCalculation.config.guests}名\n会場：${lastCalculation.config.venueType}`;
+                const url = 'https://appadaycreator.github.io/wedding-cost-calculator/';
+                window.open(`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`);
+            }
+        }
+
+        function shareToTwitter() {
+            if (lastCalculation) {
+                const text = `結婚式費用計算機で見積もりしました！\n総額：${lastCalculation.totalCost}万円\nゲスト：${lastCalculation.config.guests}名\n会場：${lastCalculation.config.venueType}\n\n#継続は力なり #結婚式 #ブライダル`;
+                const url = 'https://appadaycreator.github.io/wedding-cost-calculator/';
+                window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`);
+            }
+        }
+
+        function copyToClipboard() {
+            const url = 'https://appadaycreator.github.io/wedding-cost-calculator/';
+            navigator.clipboard.writeText(url).then(() => {
+                alert('リンクをコピーしました！');
+            });
+        }
+
+        // 初期化処理
+        document.addEventListener('DOMContentLoaded', () => {
+            displayHistory();
+        });
+
+        // モーダル外クリックで閉じる
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+
+        document.getElementById('compare-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'compare-modal') {
+                closeCompareModal();
+            }
+        });
     </script>
 </body>
-</html> 
+</html>
